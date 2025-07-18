@@ -1,5 +1,7 @@
 # Library imports
 import time
+from datetime import datetime
+
 
 import pandas as pd
 import requests
@@ -84,13 +86,15 @@ def save_to_parquet(df, fle_name):
 
 
 # Main script
+# Main script
 if __name__ == "__main__":
     # Parameters
-    DURATION_MINUTES = 2 # Collect data during one hour
-    INTERVAL_SECONDS = 1# Call the endpoint every ten seconds
+    DURATION_MINUTES = 60 # Collect data during one hour
+    INTERVAL_SECONDS = 1 # Call the endpoint every ten seconds
     # Collects vehicle positions over the specifed duration
     print(f"Starting data collection for {DURATION_MINUTES} minutes, querying every {INTERVAL_SECONDS} seconds...")
     vehicle_positions_df = collect_vehicle_positions(DURATION_MINUTES,INTERVAL_SECONDS)
     # Save the data to a Parquet fle
-    output_fle = "hsl_vehicle_positions.parquet"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_fle = f"hsl_vehicle_positions_{timestamp}.parquet"
     save_to_parquet(vehicle_positions_df, output_fle)

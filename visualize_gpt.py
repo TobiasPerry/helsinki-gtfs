@@ -4,7 +4,7 @@ import webbrowser
 import os
 
 # Path to your .parquet file
-PARQUET_FILE = "hsl_vehicle_positions_30_10.parquet"  # Replace with your actual file name
+PARQUET_FILE = "hsl_vehicle_positions_2_hours.parquet"  # Replace with your actual file name
 
 def load_and_clean_data(parquet_file):
     df = pd.read_parquet(parquet_file)
