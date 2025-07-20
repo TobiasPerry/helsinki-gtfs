@@ -12,7 +12,7 @@ import json # Used for composite key in dropdown
 def connect_to_postgres():
     try:
         # Replace ... with your actual connection string
-        conn = pg.connect("dbname=... user=... password=... host=... port=...")
+        conn = pg.connect("dbname=urbanmobility user=postgres password=mobility host=localhost port=5434")
         cur = conn.cursor()
         return conn, cur
     except Exception as e:
@@ -141,4 +141,4 @@ def update_map(selected_trip_json):
 
 # Main function to run the Dash visualization
 if __name__ == "__main__":
-    app.run_server(debug=True, port=8050)
+    app.run(debug=True, port=8050)
