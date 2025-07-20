@@ -20,4 +20,7 @@ dependencies = [
     "ipython>=9.4.0",
     "ipywidgets>=8.1.7",
     "psycopg2-binary>=2.9.10",
+    "geopandas>=1.1.1",
+    "folium>=0.20.0",
+    "branca>=0.8.1",
 ]
